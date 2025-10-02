@@ -1,0 +1,60 @@
+Resumen de Avance – Proyecto LockNet
+Idea del Proyecto:
+LockNet es un sistema de cerraduras inteligentes diseñado para gestionar y monitorear el acceso a distintos ambientes de manera remota y segura. El objetivo principal es permitir la apertura y cierre de cerraduras, registrar accesos y enviar notificaciones sobre el estado de cada puerta, integrando múltiples dispositivos en una red centralizada.
+Desarrollo del Proyecto:
+El desarrollo se realizó utilizando microcontroladores (ESP32) para gestionar sensores y actuadores de las cerraduras, y una Raspberry Pi 4 como broker central que coordina la comunicación entre los dispositivos mediante protocolos de mensajería como MQTT. Esto permite comunicación bidireccional en tiempo real, donde los nodos pueden enviar estados de las cerraduras, recibir comandos de apertura/cierre y sincronizar configuraciones.
+Para la interacción con el usuario, se implementarán interfaces gráficas interactivas accesibles desde aplicaciones web y móviles, donde será posible visualizar el estado de cada cerradura, registrar accesos y modificar configuraciones. El sistema combina eficiencia y ahorro de energía en los nodos, y asegura la persistencia de datos mediante almacenamiento local y sincronización con la base de datos central.
+
+Funcionalidades y características de LockNet:
+  1.	Control de acceso remoto:
+o	Permite abrir y cerrar cerraduras desde interfaces web o aplicaciones móviles.
+o	Soporta comandos individuales o grupales para la gestión de múltiples cerraduras desde un único punto de control.
+o	Control físico por superusuario: Cada cerradura incluye un teclado integrado que permite a un usuario con contraseña privilegiada (superusuario) abrir, cerrar y configurar la cerradura directamente, sin necesidad de la aplicación.
+  2.	Monitoreo en tiempo real:
+o	Cada cerradura informa su estado al sistema central continuamente.
+o	Notificaciones automáticas sobre eventos como apertura, cierre o intentos de acceso no autorizados.
+o	Dashboards interactivos que muestran estado, historial de accesos y estadísticas de uso.
+  3.	Comunicación entre nodos y broker central:
+o	Nodos equipados con microcontroladores se comunican con la Raspberry Pi 4 mediante MQTT.
+o	Comunicación bidireccional confiable para envío de comandos y recepción de estados.
+o	Bajo consumo de recursos y transmisión eficiente de datos en tiempo real.
+  4.	Persistencia de datos y trazabilidad:
+o	Registro de eventos de acceso y cambios de configuración en la base de datos central.
+o	Consultas de historiales completos para auditorías y análisis de uso del sistema.
+  5.	Optimización de recursos y eficiencia energética:
+o	Modos de ahorro de energía en nodos cuando no hay actividad.
+o	Gestión eficiente de transmisión de datos, evitando saturar la red y optimizando rendimiento.
+  6.	Flexibilidad e integración:
+o	Escalable: se pueden añadir nuevas cerraduras o nodos sin modificar la arquitectura principal.
+o	Posibilidad de integrar sensores adicionales, actuadores o módulos de comunicación según las necesidades del entorno.
+  7.	Seguridad y confiabilidad:
+o	Comunicación entre nodos y broker con opciones de cifrado y autenticación.
+o	Detección de fallas o desconexiones de nodos para alertar a los administradores ante incidencias.
+o	Contraseñas de superusuario que permiten control directo de la cerradura y configuración local.
+
+Avances realizados:
+•	Instalación y configuración del entorno de desarrollo en la Raspberry Pi 4, incluyendo todas las dependencias necesarias.
+•	Desarrollo del servidor central (server.py) y del script de creación de base de datos (crear_db.py).
+•	Programación y carga del código en los microcontroladores ESP32 y Arduino, permitiendo la comunicación inicial con el broker central.
+•	Pruebas iniciales de comunicación entre nodos y servidor, confirmando el envío y recepción de estados de las cerraduras mediante MQTT.
+•	Integración parcial de sensores y actuadores con los microcontroladores, verificando la apertura y cierre físico de las cerraduras.
+•	Falta desarrollar una interfaz gráfica completa para la gestión de usuarios y la visualización de los estados de los dispositivos, lo cual permitirá continuar con pruebas más avanzadas y avanzar en la integración total del proyecto.
+
+Próximos pasos:
+  1.	Desarrollo de la interfaz gráfica:
+o	Crear un dashboard web o aplicación que permita visualizar el estado de cada cerradura, gestionar usuarios y enviar comandos de apertura/cierre.
+o	Integrar la interfaz con el servidor central para que los cambios realizados por los usuarios se reflejen en tiempo real en los nodos.
+  2.	Pruebas completas de funcionalidad:
+o	Verificar la comunicación bidireccional entre todos los nodos y el broker central a través de MQTT.
+o	Confirmar la apertura y cierre de las cerraduras desde la interfaz gráfica y desde los nodos individualmente.
+o	Realizar pruebas de persistencia de datos, asegurando que los registros de acceso y configuraciones se guarden correctamente en la base de datos.
+  3.	Gestión de usuarios y roles:
+o	Implementar control de permisos y horarios de acceso para distintos usuarios.
+o	Probar la administración de múltiples usuarios simultáneamente y la seguridad de los datos.
+  4.	Optimización y escalabilidad del sistema:
+o	Ajustar la eficiencia energética de los nodos y la gestión de recursos del servidor.
+o	Verificar la posibilidad de añadir nuevas cerraduras o nodos sin afectar el funcionamiento de la red existente.
+  5.	Documentación y preparación del prototipo final:
+o	Completar la documentación técnica del proyecto, incluyendo diagramas, código y procedimientos de prueba.
+o	Preparar la presentación del prototipo funcional y los resultados obtenidos hasta el momento.
+
